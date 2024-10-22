@@ -22,4 +22,4 @@ if [[ $DEVAC_REF != "master" ]]; then
 fi
 
 echo "Installation starting..."
-source ~/.local/share/omyserv/install.sh 
+source ~/.local/share/devca/install.sh 
