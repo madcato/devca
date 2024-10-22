@@ -9,7 +9,6 @@ if [ -f server.key ]; then
 fi
 
 openssl req -newkey rsa:2048 -nodes -keyout server.key -out server.csr
-DOMAIN=$1
-openssl x509 -req -in server.csr -CA ~/.devca/ca.crt -CAkey ~/.devca/ca.key -CAcreateserial -out server.crt -days 825 -sha256 -extfile config.cnf -extensions req_ext
+openssl x509 -req -in server.csr -CA ~/.devca/ca.crt -CAkey ~/.devca/ca.key -CAcreateserial -out server.crt -days 825 -sha256
 
 rm server.csr

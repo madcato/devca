@@ -10,7 +10,7 @@ wget -qO- https://raw.githubusercontent.com/madcato/devca/refs/heads/main/boot.s
 ## Usage
 
 ```bash
-./create-server-cert.sh
+~/.local/share/devca/create-server-cert.sh
 ```
 
 Files are created in current directory.
