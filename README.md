@@ -14,3 +14,7 @@ wget -qO- https://raw.githubusercontent.com/madcato/devca/refs/heads/main/boot.s
 ```
 
 Files are created in current directory.
+
+## Info
+
+This script creates a CA certificate and its key. Both files are stored in `~/.devca` by default.
