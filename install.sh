@@ -45,3 +45,19 @@ else
   echo "CA certificate already exists."
   echo "If you want to regenerate it, please remove the existing one ~/.devca/ca.crt and ~/.devca/ca.key files, and reinstall"
 fi
+
+# Install ca certificate in the system
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
+  echo "Installing CA certificate in the macOS system keychain..."
+  sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ~/.devca/ca.crt 
+elif [[ -n "$(command -v lsb_release)" ]] && [[ "$(lsb_release -is)" == "Ubuntu" ]]; then
+  # Ubuntu
+  echo "Installing CA certificate in the Ubuntu system..."
+  sudo cp ~/.devca/ca.crt /usr/local/share/ca-certificates/devca.crt
+  sudo update-ca-certificates
+else
+  echo "Unsupported OS."
+  exit 1
+fi
