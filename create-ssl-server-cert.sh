@@ -24,12 +24,4 @@ DNS.1 = gitlab.local
 EOF
 )
 
-openssl x509 -req -in server.csr -CA ~/.devca/ca.crt -CAkey ~/.devca/ca.key -CAcreateserial -out server.crt -days 1800 -sha256 -extfile <(cat <<EOF
-[req]
-subjectAltName = @alt_names
-
-[alt_names]
-DNS.1 = gitlab.local
-EOF
-)
-
+openssl x509 -req -in server.csr -CA ~/.devca/ca.crt -CAkey ~/.devca/ca.key -CAcreateserial -out server.crt -days 1800 -sha256 -extfile v3.ext 
